@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumb Sans', sans-serif;
+}
+
+/* Nav Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    z-index: 999;
+}
+
+.navbar_logo {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: auto 2rem;
+    width: 100%;
+    max-width: 600;
+    font-size: larger;
+    font-size: 32px;
+}
+
+.navbar_buttons {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: auto 5rem;
+    width: 100%;
+}
+
+.navbar_item {
+    align-items: center;
+    justify-content: center;
+    padding: 5px 5px;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    transition: color 0.25s ease;
+}
+
+.navbar_item:hover {
+    color: rgb(85, 229, 255);
+    transition: all 0.25s ease;
+}
+
+/* About me */
+
+.aboutcontainer {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding-bottom: 100px;
+}
+
+.aboutme_card {
+    margin: auto 1rem auto 5rem
+}
+
+.aboutme_basic {
+    width: 21vw;
+    margin: auto 2rem;
+}
+
+.aboutme_basic h1 {
+    font-size: 3vw;
+}
+
+.aboutme_basic h3 {
+    font-size: 1.5vw;
+    margin: .5rem auto;
+    background-image: linear-gradient(to right, black 0%, rgb(199, 169, 1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent
+}
+
+.aboutme_basic h4 {
+    margin: .5rem auto;
+    font-size: 1.3vw;
+    padding-bottom: 1rem;
+}
+
+.aboutmeskills {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.aboutmeskills ul {
+    font-size: 1.5vw;
+    padding-left: 2rem;
+    margin-top: 5px;
+}
+
+.aboutmeskills label {
+    font-size: 1.5vw;
+}
+
+#main_img {
+    margin: 2rem 2rem;
+    background-size: cover;
+    width: 60%;
+    opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+    .navbar_logo {
+        font-size: 22px;
+    }
+
+    .aboutcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 100px;
+    }
+
+    .aboutme_card {
+        margin: 0 0;
+    }
+
+    .aboutme_basic {
+        width: auto;
+        margin: auto;
+    }
+
+    .aboutme_basic h1 {
+        text-align: center;
+        font-size: 7vw;
+    }
+
+    .aboutme_basic h3 {
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .aboutme_basic h4 {
+        text-align: center;
+        font-size: 4vw;
+    }
+
+    #main_img {
+        background-size: cover;
+        width: 80%;
+        opacity: 1;
+    }
+
+    .aboutmeskills {
+        justify-content: space-evenly;
+    }
+
+    .aboutmeskills ul {
+        font-size: 3vw;
+    }
+
+    .aboutmeskills label {
+        font-size: 4vw;
+    }
+}
+
+/* Projects */
+
+.project_main {
+    height: 100vh;
+    width: 100%;
+}
+
+.project_main h1 {
+    margin: auto 5rem;
+}
+
+.project_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.project_card {
+    height: 450px;
+    width: 300px;
+    margin: 4rem;
+    position: relative;
+    border-style: solid;
+    border-width: 1px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-style: none;
+    background-size: cover;
+    box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.2s ease;
+}
+
+.project_card:nth-child(1) {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%), url(images/EvergladesImage.png);
+    background-position: -25px;
+}
+
+.project_card:nth-child(2) {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%), url(images/Amigo.png);
+}
+
+.project_card:nth-child(3) {
+    background-color: rgb(99, 99, 99);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%), url(images/Reactlogo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.project_card:nth-child(4) {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%), url(images/Mancala.jpg);
+}
+
+.project_card:nth-child(3) h1 {
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    font-size: 42px;
+    top: 200px;
+    color: #61DAFB;
+}
+
+.project_card:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 4px 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.2s ease;
+}
+
+.project_card h2 {
+    color: white;
+    width: 100%;
+    position: absolute;
+    top: 400px;
+    text-align: center;
+    margin: auto;
+}
