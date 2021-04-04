@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
     font-family: 'Kumb Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body { 
+    padding-top: 65px; 
 }
 
 /* Nav Bar */
@@ -10,12 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 50px;
     background-color: white;
-    z-index: 999;
+    z-index: 9999;
 }
 
 .navbar_logo {
@@ -27,13 +32,14 @@
     max-width: 600;
     font-size: larger;
     font-size: 32px;
+    cursor: default;
 }
 
 .navbar_buttons {
     display: flex;
     justify-content: space-between;
     max-width: 300px;
-    margin: auto 5rem;
+    margin: auto 3rem auto 0;
     width: 100%;
 }
 
@@ -45,11 +51,8 @@
     text-decoration: none;
     color: black;
     transition: color 0.25s ease;
-}
-
-.navbar_item:hover {
-    color: rgb(85, 229, 255);
-    transition: all 0.25s ease;
+    text-align: center;
+    cursor: pointer;
 }
 
 /* About me */
@@ -61,7 +64,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-    padding-bottom: 100px;
 }
 
 .aboutme_card {
@@ -79,7 +81,6 @@
 
 .aboutme_basic h3 {
     font-size: 1.5vw;
-    margin: .5rem auto;
     background-image: linear-gradient(to right, black 0%, rgb(199, 169, 1) 100%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -88,9 +89,8 @@
 }
 
 .aboutme_basic h4 {
-    margin: .5rem auto;
+    
     font-size: 1.3vw;
-    padding-bottom: 1rem;
 }
 
 .aboutmeskills {
@@ -108,67 +108,14 @@
     font-size: 1.5vw;
 }
 
+.languagelist_container{
+}
+
 #main_img {
     margin: 2rem 2rem;
     background-size: cover;
     width: 60%;
     opacity: 1;
-}
-
-@media screen and (max-width: 900px) {
-    .navbar_logo {
-        font-size: 22px;
-    }
-
-    .aboutcontainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        padding-bottom: 100px;
-    }
-
-    .aboutme_card {
-        margin: 0 0;
-    }
-
-    .aboutme_basic {
-        width: auto;
-        margin: auto;
-    }
-
-    .aboutme_basic h1 {
-        text-align: center;
-        font-size: 7vw;
-    }
-
-    .aboutme_basic h3 {
-        text-align: center;
-        font-size: 5vw;
-    }
-
-    .aboutme_basic h4 {
-        text-align: center;
-        font-size: 4vw;
-    }
-
-    #main_img {
-        background-size: cover;
-        width: 80%;
-        opacity: 1;
-    }
-
-    .aboutmeskills {
-        justify-content: space-evenly;
-    }
-
-    .aboutmeskills ul {
-        font-size: 3vw;
-    }
-
-    .aboutmeskills label {
-        font-size: 4vw;
-    }
 }
 
 /* Projects */
@@ -237,17 +184,161 @@
     color: #61DAFB;
 }
 
-.project_card:hover {
-    transform: scale(1.1);
-    box-shadow: 4px 4px 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all 0.2s ease;
-}
-
 .project_card h2 {
     color: white;
     width: 100%;
     position: absolute;
-    top: 400px;
+    top: 380px;
     text-align: center;
     margin: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project_card:hover {
+        transform: scale(1.1);
+        box-shadow: 4px 4px 8px 16px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: all 0.2s ease;
+    }
+
+    .navbar_item:hover {
+        color: rgb(85, 229, 255);
+        transition: all 0.25s ease;
+    }
+  }
+  
+@media screen and (max-width: 1024px) {
+    .navbar_logo {
+        font-size: 22px;
+        margin: 5px 0 5px 5px;
+        width: auto;
+    }
+
+    .aboutcontainer {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100vh + 50px;
+    }
+
+    .aboutme_card {
+        margin: 0;
+    }
+
+    .aboutme_basic {
+        width: auto;
+        margin: auto;
+    }
+
+    .aboutme_basic h1 {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .aboutme_basic h3 {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .aboutme_basic h4 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .aboutmeskills ul {
+        font-size: 1.4rem;
+    }
+
+    .aboutmeskills label {
+        font-size: 1.8rem;
+    }
+
+    #main_img {
+        margin: 0;
+        height: 35vw;
+        width: auto;
+        opacity: 1;
+    }
+
+    .aboutmeskills {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 600px){
+    
+    .navbar_buttons{
+        background-color: rgba(0, 0, 0, 0.980);
+        display: grid;
+        top: -200px;
+        left: 50%;
+        position: fixed;
+        align-items: center;
+        justify-content: center;
+        max-width: none;
+        width: 60%;
+        height: 40%;
+        margin: auto auto;
+        transform: translate(-50%, -60%);
+        opacity: 1;
+        border-radius: 20px;
+        transition: all 0.4s ease;
+    }
+    
+    .navbar_buttons.active{
+        top: 50%;
+        transform: translate(-50%, -60%);
+        opacity: 1;
+        transition: all 0.4s ease;
+    }
+
+    .navbar_item{
+        color: white;
+    }
+
+    .mobile_menu{
+        margin: auto 1rem; 
+        cursor: pointer;
+    }
+
+    .mobile_menu .bar{
+        width: 26px;
+        height: 3px;
+        margin: 4px auto;
+        background-color: black;
+        display: block;
+    }
+
+    .aboutme_basic h1 {
+        text-align: center;
+        font-size: 7vw;
+    }
+
+    .aboutme_basic h3 {
+        text-align: center;
+        font-size: 6vw;
+    }
+
+    .aboutme_basic h4 {
+        text-align: center;
+        font-size: 5vw;
+    }
+
+    .aboutmeskills ul {
+        font-size: 3.4vw;
+    }
+
+    .aboutmeskills label {
+        font-size: 4vw;
+    }
+
+    .project_main h1{
+        margin: auto 0 auto 1rem;
+    }
+}
+
+@media screen and (max-height: 600px){
+    .aboutcontainer{
+        height: auto;
+        margin-bottom: 50px;
+    }
 }
