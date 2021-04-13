@@ -18,15 +18,12 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background-color: white;
     z-index: 9999;
 }
 
 .navbar_logo {
-    display: flex;
-    align-items: center;
-    justify-content: left;
     margin: auto 2rem;
     width: 100%;
     max-width: 600;
@@ -41,18 +38,36 @@ body {
     max-width: 300px;
     margin: auto 3rem auto 0;
     width: 100%;
+    height: 100%;
 }
 
-.navbar_item {
+.navbar_item{
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px 5px;
     font-size: large;
     text-decoration: none;
     color: black;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, background-color .7s ease;
     text-align: center;
     cursor: pointer;
+    width: 100%
+}
+
+.navbar_item_select{
+    background-color: rgba(18, 14, 255, 0.87);
+    color: white;
+    /* transition: background-color .5s ease; */
+}
+
+.navbar_buttons_select{
+    max-height: 100%;
+    margin: 0 3rem 0 0;
+}
+
+.nomargin{
+    margin: 0 0;
 }
 
 /* About me */
@@ -81,7 +96,7 @@ body {
 
 .aboutme_basic h3 {
     font-size: 1.5vw;
-    background-image: linear-gradient(to right, black 0%, rgb(199, 169, 1) 100%);
+    background-image: linear-gradient(to right, black 0%, rgb(255, 215, 0) 100%);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -121,7 +136,7 @@ body {
 /* Projects */
 
 .project_main {
-    height: 100vh;
+    height: auto;
     width: 100%;
 }
 
@@ -135,10 +150,12 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    number: 2;
     width: 100%;
 }
 
 .project_card {
+    width: 100%;
     height: 450px;
     width: 300px;
     margin: 4rem;
@@ -172,6 +189,10 @@ body {
 
 .project_card:nth-child(4) {
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%), url(images/Mancala.jpg);
+}
+
+.project_card:nth-child(5) {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(17, 17, 17) 100%);
 }
 
 .project_card:nth-child(3) h1 {
