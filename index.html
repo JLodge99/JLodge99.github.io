@@ -9,7 +9,7 @@
 </head>
 <body class = "bodymain" id="main">
     <div class="navbar">
-        <div class="navbar_logo">Jerold Lodge</div>
+        <!-- <div class="navbar_logo">Jerold Lodge</div> -->
         <div class="mobile_menu" id="mobile_menu_btn">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -17,11 +17,21 @@
         </div>
         <div class="navbar_buttons">
             <a class="navbar_item">Home</a>
+            <a class="navbar_item">About Me</a>
             <a class="navbar_item">Projects</a>
             <a href="JeroldLodgeResume2021.pdf" class="navbar_item" target="_blank">Resume</a>
         </div>
     </div>
-    <div class="aboutcontainer">
+    <div id="homecontainer">
+        <span id="titlename">
+            <span class="line"></span>
+            <span class="letters">JEROLD LODGE</span>
+            <span class="line"></span>
+        </span>
+        <button class="toabout">About Me</button>
+        <canvas id="canvas1"></canvas>
+    </div>
+    <div id="scroll_link" class="aboutcontainer">
         <object data="images/code thinking ids.svg" type="image/svg+xml" id="main_img"></object>
         <div class="aboutme_card">
             <div class="aboutme_basic">
@@ -80,5 +90,6 @@
     </div>
     <script src="anime.min.js"></script>
     <script src="app.js"></script>
+    <script src="background.js"></script>
 </body>
 </html>

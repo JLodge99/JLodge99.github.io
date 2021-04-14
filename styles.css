@@ -10,6 +10,70 @@ body {
     padding-top: 65px; 
 }
 
+#homecontainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    flex-direction: column;
+}
+
+#canvas1{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    padding-bottom: 65px;
+}
+
+#titlename{
+    font-size: 8vw;
+    font-weight: 600;
+    color: #3F3D56;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    white-space: nowrap;
+    opacity: 0;
+    z-index: 99;
+    margin-bottom: 3rem;
+}
+
+.letter {
+    display: inline-block;
+    line-height: 1em;
+    font-size: 8vw;
+}
+
+#titlename .line{
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background-color: #3F3D56;
+}
+
+#titlename .line:nth-child(3){
+    bottom: 0;
+    left: 0;
+}
+
+.toabout{
+    height: 40px;
+    width: 100px;
+    text-decoration: none;
+    background-color: #3F3D56;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    z-index: 99;
+    cursor: pointer;
+    margin-bottom: 200px;
+}
+
 /* Nav Bar */
 .navbar {
     display: flex;
@@ -18,9 +82,15 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 40px;
+    height: 65px;
     background-color: white;
     z-index: 9999;
+    transition: background-color .5s ease;
+}
+
+.navbar.active{
+    background-color: #3F3D56;
+    transition: background-color .5s ease;
 }
 
 .navbar_logo {
@@ -35,7 +105,7 @@ body {
 .navbar_buttons {
     display: flex;
     justify-content: space-between;
-    max-width: 300px;
+    max-width: 450px;
     margin: auto 3rem auto 0;
     width: 100%;
     height: 100%;
@@ -49,25 +119,14 @@ body {
     font-size: large;
     text-decoration: none;
     color: black;
-    transition: color 0.25s ease, background-color .7s ease;
+    transition: color 0.25s ease;
     text-align: center;
     cursor: pointer;
-    width: 100%
 }
 
-.navbar_item_select{
-    background-color: rgba(18, 14, 255, 0.87);
+.navbar_item.active{
     color: white;
-    /* transition: background-color .5s ease; */
-}
-
-.navbar_buttons_select{
-    max-height: 100%;
-    margin: 0 3rem 0 0;
-}
-
-.nomargin{
-    margin: 0 0;
+    transition: color 0.25s ease;
 }
 
 /* About me */
@@ -79,6 +138,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
+    padding-bottom: 100px;
 }
 
 .aboutme_card {
@@ -123,9 +183,6 @@ body {
     font-size: 1.5vw;
 }
 
-.languagelist_container{
-}
-
 #main_img {
     margin: 2rem 2rem;
     background-size: cover;
@@ -150,7 +207,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    number: 2;
     width: 100%;
 }
 
@@ -286,7 +342,33 @@ body {
 }
 
 @media screen and (max-width: 600px){
+    #titlename{
+        font-size: 10vw;
+        font-weight: 600;
+    }
     
+    .letter {
+        display: inline-block;
+        line-height: 1.2em;
+        font-size: 11vw;
+    }
+    
+    #titlename .line{
+        position: absolute;
+        height: 6px;
+        width: 100%;
+        background-color: #3F3D56;
+    }
+    
+    #titlename .line:nth-child(3){
+        bottom: 0;
+        left: 0;
+    }
+
+    .navbar{
+        justify-content: flex-end;
+    }
+
     .navbar_buttons{
         background-color: rgba(0, 0, 0, 0.980);
         display: grid;
@@ -321,12 +403,30 @@ body {
         cursor: pointer;
     }
 
+    .mobile_menu.is-active .bar:nth-child(1){
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile_menu.is-active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .mobile_menu.is-active .bar:nth-child(3){
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
     .mobile_menu .bar{
         width: 26px;
         height: 3px;
         margin: 4px auto;
         background-color: black;
         display: block;
+        transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile_menu .bar.active{
+        background-color: white;
+        transition: background-color 0.25s ease, transform 0.25s ease;
     }
 
     .aboutme_basic h1 {
