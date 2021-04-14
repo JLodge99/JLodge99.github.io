@@ -107,41 +107,6 @@ function burst(count) {
   }
 }
 
-function introanimation() {
-  anime
-    .timeline()
-    .add({
-      targets: "#titlename",
-      opacity: 1,
-    })
-    .add({
-      targets: ".letter",
-      opacity: [0, 1],
-      easing: "easeOutExpo",
-      translateY: [200, 0],
-      duration: 500,
-      delay: (el, i) => 70 * (i + 1),
-    })
-    .add({
-      targets: ".line",
-      scaleX: [0, 1],
-      opacity: [0, 1],
-      easing: "easeOutExpo",
-      duration: 700,
-      offset: "-=875",
-      delay: (el, i, l) => 80 * (l - i),
-    })
-    .add(
-      {
-        targets: aboutmebtn,
-        opacity: [0, 1],
-        translateY: [-70, 0],
-        duration: 1500,
-      },
-      "-=200"
-    );
-}
-
 function setDensity() {
   if (window.innerWidth <= 600) {
     density = 50;
@@ -163,7 +128,7 @@ letters.innerHTML = letters.textContent.replace(
   "<span class='letter'>$&</span>"
 );
 
-const test = anime
+const introanimation = anime
   .timeline()
   .add({
     targets: "#titlename",
@@ -214,15 +179,4 @@ const titlenameHeight = titlename.offsetHeight
 */
 
 animate();
-
-test.play();
-
-canvas.addEventListener("click", () => {
-  if (!canvasInView) {
-    console.log("Starting animation");
-    canvasInView = true;
-    animate();
-  } else {
-    canvasInView = false;
-  }
-});
+introanimation.play();
