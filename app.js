@@ -233,7 +233,7 @@ let popin_observer = new IntersectionObserver((element, observer) => {
   }
 
   observer.unobserve(element[0].target);
-}, options);
+}, {rootMargin: "0px 0px -250px 0px"});
 
 /*
 let popin_observer = new IntersectionObserver((element, observer) => {
