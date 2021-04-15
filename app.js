@@ -20,6 +20,7 @@ const ctx = canvas.getContext("2d");
 const letters = document.querySelector(".letters");
 const titlename = document.getElementById("titlename");
 const aboutmebtn = document.querySelector(".toabout");
+const aboutmecard = document.querySelector(".aboutme_card");
 
 var currentIndex = -1;
 var navtoggle = false;
@@ -96,6 +97,15 @@ a.addEventListener(
       svgDoc.getElementById("codeline4"),
     ];
 
+    var squares = [
+      svgDoc.getElementById("Square_Fill_1"),
+      svgDoc.getElementById("Square_Fill_2"),
+      svgDoc.getElementById("Square_Fill_3"),
+      svgDoc.getElementById("Square_Outline_1"),
+      svgDoc.getElementById("Square_Outline_2"),
+      svgDoc.getElementById("Square_Outline_3"),
+    ];
+
     anime({
       targets: delta,
       loop: true,
@@ -104,6 +114,14 @@ a.addEventListener(
       translateY: -10,
       easing: "easeInOutCubic",
       delay: anime.stagger(20),
+    });
+
+    anime({
+      targets: squares,
+      loop: true,
+      rotate: 360,
+      easing: "linear",
+      duration: 4000,
     });
   },
   false
@@ -159,3 +177,79 @@ document.addEventListener("scroll", () => {
     }
   }
 });
+
+let options = {
+  threshold: 0.3,
+};
+
+let observer = new IntersectionObserver((element, observer) => {
+  if (!element[0].isIntersecting) {
+    return;
+  } else {
+    console.log("FIRE ANIMATION");
+    console.log(element);
+    anime
+      .timeline()
+      .add({
+        targets: element[0].target.children[0],
+        scale: [0, 1],
+        translateY: -10,
+        easing: "easeInOutCubic",
+      })
+      .add(
+        {
+          targets: element[0].target.children[1],
+          opacity: [0, 1],
+          translateX: [500, 0],
+          easing: "easeInOutCubic",
+        },
+        "-=600"
+      );
+    observer.unobserve(element[0].target);
+  }
+}, options);
+
+observer.observe(aboutcontainer);
+
+let intro_observer = new IntersectionObserver((element, observer) => {
+  if (!element[0].isIntersecting) {
+    return;
+  } else {
+    introanimation.play();
+  }
+
+  observer.unobserve(element[0].target);
+}, options);
+
+intro_observer.observe(homecontainer);
+
+let popin_observer = new IntersectionObserver((element, observer) => {
+  console.log(element[0].target.children)
+  if (!element[0].isIntersecting) return;
+  else{
+    for(let el of element[0].target.children){
+      el.classList.add("appear")
+    }
+  }
+
+  observer.unobserve(element[0].target);
+}, options);
+
+/*
+let popin_observer = new IntersectionObserver((element, observer) => {
+  console.log(element[0].target.children)
+  if (!element[0].isIntersecting) return;
+  else{
+    anime({
+      targets: element[0].target.children,
+      scale: [0, 1],
+      opacity: [0, 1],
+      delay: anime.stagger(200)
+    })
+  }
+
+  observer.unobserve(element[0].target);
+}, options);
+*/
+
+popin_observer.observe(projectcontainer.children[1])

@@ -129,7 +129,9 @@ letters.innerHTML = letters.textContent.replace(
 );
 
 const introanimation = anime
-  .timeline()
+  .timeline({
+    autoplay: false,
+  })
   .add({
     targets: "#titlename",
     opacity: 1,
@@ -179,4 +181,3 @@ const titlenameHeight = titlename.offsetHeight
 */
 
 animate();
-introanimation.play();

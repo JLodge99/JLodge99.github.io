@@ -142,7 +142,8 @@ body {
 }
 
 .aboutme_card {
-    margin: auto 1rem auto 5rem
+    margin: auto 1rem auto 5rem;
+    opacity: 0;
 }
 
 .aboutme_basic {
@@ -184,6 +185,7 @@ body {
 }
 
 #main_img {
+    transform: scale(0);
     margin: 2rem 2rem;
     background-size: cover;
     width: 60%;
@@ -224,7 +226,14 @@ body {
     border-style: none;
     background-size: cover;
     box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all 0.2s ease;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.project_card.appear{
+    transition: transform .5s ease, opacity .5s ease;
+    transform: scale(1);
+    opacity: 1;
 }
 
 .project_card:nth-child(1) {
