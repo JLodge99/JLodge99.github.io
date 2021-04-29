@@ -231,7 +231,7 @@ body {
 }
 
 .aboutme_cover{
-    padding: 165px 0px 65px 0px;
+    padding: 165px 0px 65px 65px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -290,7 +290,7 @@ body {
 #resumeman_img {
     margin: 2rem 2rem;
     background-size: cover;
-    width: 45%;
+    width: 40%;
     pointer-events: none;
     transform: scale(0);
 }
