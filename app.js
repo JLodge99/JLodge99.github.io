@@ -166,6 +166,7 @@ $(document).ready(function() {
     $("#fullpage").fullpage({
         scrollOverflow: true,
         anchors: ["main", "aboutme", "projects"],
+        // responsiveHeight: 850,
         afterLoad: function(origin, destination, direction) {
             if (destination) {
                 if (destination == 2) {}
