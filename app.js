@@ -15,6 +15,7 @@ const scroll_links = document.querySelectorAll("#scroll_link");
 const homecontainer = document.querySelector("#homecontainer");
 const aboutmecoverinfo = document.querySelector(".aboutme_cover_info");
 const resumeman = document.getElementById("resumeman_img");
+const aboutmebtn = document.querySelector(".toabout");
 const aboutmecover = document.querySelector(".aboutme_cover");
 const aboutmeskills = document.querySelector(".aboutme_skills");
 const canvas = document.getElementById("canvas1");
