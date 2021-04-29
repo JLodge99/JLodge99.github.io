@@ -1,255 +1,242 @@
 const projectcard = document.querySelectorAll(".project_card");
 const githublinks = [
-  "https://github.com/JLodge99/Everglades-Server",
-  "https://github.com/JLodge99/Amigo-Mobile",
-  "https://github.com/JLodge99/My-Contacts",
-  "",
-  "",
+    "https://github.com/JLodge99/Everglades-Server",
+    "https://github.com/JLodge99/EvergladesUI",
+    "https://github.com/JLodge99/Amigo-Mobile",
+    "https://github.com/JLodge99/My-Contacts",
+    "",
+    "",
 ];
 const mobile_menu = document.querySelector("#mobile_menu_btn");
-const mobilebar = document.querySelectorAll(".bar");
 const navbar = document.querySelector(".navbar");
+const navbaritem = document.querySelectorAll(".navbar_item");
 const navmenu = document.querySelector(".navbar_buttons");
-const navlinks = document.querySelectorAll(".navbar_item");
 const scroll_links = document.querySelectorAll("#scroll_link");
 const homecontainer = document.querySelector("#homecontainer");
-const aboutcontainer = document.querySelector(".aboutcontainer");
-const projectcontainer = document.querySelector(".project_main");
+const aboutmecoverinfo = document.querySelector(".aboutme_cover_info");
+const resumeman = document.getElementById("resumeman_img");
+const aboutmecover = document.querySelector(".aboutme_cover");
+const aboutmeskills = document.querySelector(".aboutme_skills");
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 const letters = document.querySelector(".letters");
 const titlename = document.getElementById("titlename");
-const aboutmebtn = document.querySelector(".toabout");
-const aboutmecard = document.querySelector(".aboutme_card");
+const sectiondivtop = document.querySelector(".sectiondivide_top");
+const sectiondivbottom = document.querySelector(".sectiondivide_bottom");
 
-var currentIndex = -1;
-var navtoggle = false;
 var canvasInView = true;
+var currentslide = 0;
 
 // Redirect logic for project cards
 projectcard.forEach((x, index) => {
-  x.addEventListener("click", () => {
-    window.open(githublinks[index]);
-  });
+    x.addEventListener("click", () => {
+        window.open(githublinks[index]);
+    });
 });
 
 // Mobile menu toggle
 mobile_menu.addEventListener("click", () => {
-  mobile_menu.classList.toggle("is-active");
-  navmenu.classList.toggle("active");
+    mobile_menu.classList.toggle("is-active");
+    navmenu.classList.toggle("active");
 });
 
-aboutmebtn.addEventListener("click", () => {
-  const yOffset = -65;
-  const y =
-    scroll_links[0].getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-  window.scrollTo({ top: y, behavior: "smooth" });
-});
-
-// Navbar link logic
-navlinks.forEach((element, key) => {
-  if (key == 0) {
-    element.addEventListener("click", () => {
-      window.scrollTo(0, 0);
-      navmenu.classList.toggle("active", false);
-      mobile_menu.classList.toggle("is-active", false);
-    });
-  } else if (key == 1) {
-    element.addEventListener("click", () => {
-      const yOffset = -65;
-      const y =
-        scroll_links[0].getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-      navmenu.classList.toggle("active", false);
-      mobile_menu.classList.toggle("is-active", false);
-    });
-  } else if (key == 2) {
-    element.addEventListener("click", () => {
-      const yOffset = -65;
-      const y =
-        scroll_links[1].getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
-      navmenu.classList.toggle("active", false);
-      mobile_menu.classList.toggle("is-active", false);
-    });
-  }
-});
-
-// SVG animation logic
-var a = document.getElementById("main_img");
+// SVG codeman animation logic
+var a = document.getElementById("codeman_img");
 a.addEventListener(
-  "load",
-  function () {
-    // get the inner DOM of alpha.svg
-    var svgDoc = a.contentDocument;
-    // get the inner element by id
-    var delta = [
-      svgDoc.getElementById("codeline1"),
-      svgDoc.getElementById("codeline2"),
-      svgDoc.getElementById("codeline3"),
-      svgDoc.getElementById("codeline4"),
-    ];
+    "load",
+    function() {
+        // get the inner DOM of alpha.svg
+        var svgDoc = a.contentDocument;
+        // get the inner element by id
+        var delta = [
+            svgDoc.getElementById("codeline1"),
+            svgDoc.getElementById("codeline2"),
+            svgDoc.getElementById("codeline3"),
+            svgDoc.getElementById("codeline4"),
+        ];
 
-    var squares = [
-      svgDoc.getElementById("Square_Fill_1"),
-      svgDoc.getElementById("Square_Fill_2"),
-      svgDoc.getElementById("Square_Fill_3"),
-      svgDoc.getElementById("Square_Outline_1"),
-      svgDoc.getElementById("Square_Outline_2"),
-      svgDoc.getElementById("Square_Outline_3"),
-    ];
+        var squares = [
+            svgDoc.getElementById("Square_Fill_1"),
+            svgDoc.getElementById("Square_Fill_2"),
+            svgDoc.getElementById("Square_Fill_3"),
+            svgDoc.getElementById("Square_Outline_1"),
+            svgDoc.getElementById("Square_Outline_2"),
+            svgDoc.getElementById("Square_Outline_3"),
+        ];
 
-    anime({
-      targets: delta,
-      loop: true,
-      direction: "alternate",
-      scale: 1,
-      translateY: -10,
-      easing: "easeInOutCubic",
-      delay: anime.stagger(20),
-    });
+        anime({
+            targets: delta,
+            loop: true,
+            direction: "alternate",
+            scale: 1,
+            translateY: -10,
+            easing: "easeInOutCubic",
+            delay: anime.stagger(20),
+        });
 
-    anime({
-      targets: squares,
-      loop: true,
-      rotate: 360,
-      easing: "linear",
-      duration: 4000,
-    });
-  },
-  false
+        anime({
+            targets: squares,
+            loop: true,
+            rotate: 360,
+            easing: "linear",
+            duration: 4000,
+        });
+    },
+    false
 );
 
-function getNavIndexByScrollPos(scrollPosition) {
-  let navheight = 65;
-  if (scrollPosition > projectcontainer.offsetTop - 200) return 2;
-  else if (scrollPosition > aboutcontainer.offsetTop - 200) return 1;
-  else if (scrollPosition > 0) return 0;
-
-  return -1;
-}
-
-let tick = false;
-document.addEventListener("scroll", () => {
-  scrollpos = window.scrollY;
-  if (!tick) {
-    if ((index = getNavIndexByScrollPos(scrollpos)) != currentIndex) {
-      currentIndex = index;
-      console.log("Index: " + index);
-      console.log("Selected: " + currentIndex);
-      tick = true;
-      requestAnimationFrame(() => {
-        tick = false;
-        if (currentIndex != -1 && !navtoggle) {
-          navbar.classList.toggle("active", true);
-          mobilebar.forEach((element, key) => {
-            element.classList.toggle("active", true);
-          });
-          navlinks.forEach((element, key) => {
-            element.classList.toggle("active", true);
-          });
-          navtoggle = true;
-        } else if (currentIndex == -1 && navtoggle) {
-          mobilebar.forEach((element, key) => {
-            element.classList.toggle("active", false);
-          });
-          navbar.classList.toggle("active", false);
-          navlinks.forEach((element, key) => {
-            element.classList.toggle("active", false);
-          });
-          navtoggle = false;
-        }
-        console.log("Done");
-      });
-    }
-
-    if (canvas.getBoundingClientRect().bottom - 65 < 0) canvasInView = false;
-    else if (!canvasInView && canvas.getBoundingClientRect().bottom - 65 > 0) {
-      canvasInView = true;
-      animate();
-    }
-  }
-});
-
-let options = {
-  threshold: 0.3,
-};
-
-let observer = new IntersectionObserver((element, observer) => {
-  if (!element[0].isIntersecting) {
-    return;
-  } else {
-    console.log("FIRE ANIMATION");
-    console.log(element);
+// About me information intro animation
+const aboutmeintro = (element) =>
     anime
-      .timeline()
-      .add({
-        targets: element[0].target.children[0],
+    .timeline({
+        autoplay: false,
+    })
+    .add({
+        targets: element.children[1],
         scale: [0, 1],
         translateY: -10,
+        opacity: 1,
         easing: "easeInOutCubic",
-      })
-      .add(
-        {
-          targets: element[0].target.children[1],
-          opacity: [0, 1],
-          translateX: [500, 0],
-          easing: "easeInOutCubic",
+    })
+    .add({
+            targets: element.children[0],
+            opacity: 1,
+            translateX: [500, 0],
+            easing: "easeInOutCubic",
         },
         "-=600"
-      );
-    observer.unobserve(element[0].target);
-  }
-}, options);
+    );
 
-observer.observe(aboutcontainer);
-
-let intro_observer = new IntersectionObserver((element, observer) => {
-  if (!element[0].isIntersecting) {
-    return;
-  } else {
-    introanimation.play();
-  }
-
-  observer.unobserve(element[0].target);
-}, options);
-
-intro_observer.observe(homecontainer);
-
-let popin_observer = new IntersectionObserver((element, observer) => {
-  console.log(element[0].target.children)
-  if (!element[0].isIntersecting) return;
-  else{
-    for(let el of element[0].target.children){
-      el.classList.add("appear")
-    }
-  }
-
-  observer.unobserve(element[0].target);
-}, {rootMargin: "0px 0px -250px 0px"});
-
-/*
-let popin_observer = new IntersectionObserver((element, observer) => {
-  console.log(element[0].target.children)
-  if (!element[0].isIntersecting) return;
-  else{
+// About me information outro animation
+const aboutmeoutro = (element) =>
     anime({
-      targets: element[0].target.children,
-      scale: [0, 1],
-      opacity: [0, 1],
-      delay: anime.stagger(200)
-    })
-  }
+        targets: element.children,
+        opacity: 0,
+    });
 
-  observer.unobserve(element[0].target);
-}, options);
-*/
+// Color gradients for section deviders
+var gradients_front = {
+    start: "rgba(255, 202, 6, 1)",
+    end: "rgba(255, 202, 6, .25)",
+};
 
-popin_observer.observe(projectcontainer.children[1])
+var gradients_back = {
+    start: "rgba(255, 202, 6, .5)",
+    end: "rgba(255, 202, 6, .25)",
+};
+
+// Gradient Color change animations because its not supported in CSS
+const gradient_front_anim = (color1, color2) =>
+    anime({
+        autoplay: false,
+        targets: gradients_front,
+        start: color1,
+        end: color2,
+        duration: 4000,
+        update: (anim) => {
+            var value1 = anim.animations[0].currentValue;
+            var value2 = anim.animations[1].currentValue;
+            sectiondivtop.children[1].style.backgroundImage =
+                "linear-gradient(to left, " + value1 + " 0%, " + value2 + " 100%)";
+            sectiondivbottom.children[1].style.backgroundImage =
+                "linear-gradient(to left, " + value1 + " 0%, " + value2 + " 100%)";
+        },
+    });
+
+const gradient_back_anim = (color1, color2) =>
+    anime({
+        autoplay: false,
+        targets: gradients_back,
+        start: color1,
+        end: color2,
+        duration: 4000,
+        update: (anim) => {
+            var value1 = anim.animations[0].currentValue;
+            var value2 = anim.animations[1].currentValue;
+            sectiondivtop.children[0].style.backgroundImage =
+                "linear-gradient(to left, " + value1 + " 0%, " + value2 + " 100%)";
+            sectiondivbottom.children[0].style.backgroundImage =
+                "linear-gradient(to left, " + value1 + " 0%, " + value2 + " 100%)";
+        },
+    });
+
+// Fullpage.js Initialization
+$(document).ready(function() {
+    $("#fullpage").fullpage({
+        scrollOverflow: true,
+        anchors: ["main", "aboutme", "projects"],
+        afterLoad: function(origin, destination, direction) {
+            if (destination) {
+                if (destination == 2) {}
+            }
+        },
+        onLeave: function(origin, destination, direction) {
+            if (origin) {
+                switch (origin) {
+                    case 1:
+                        navbar.classList.toggle("active", true);
+                        navbaritem.forEach((element) => {
+                            element.classList.toggle("active", true);
+                        });
+                        break;
+                    case 2:
+                        sectiondivtop.classList.remove("appear");
+                        sectiondivbottom.classList.remove("appear");
+                        aboutmeoutro(
+                            currentslide == 0 ? aboutmecover : aboutmeskills
+                        ).play();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (destination) {
+                switch (destination) {
+                    case 1:
+                        navbar.classList.toggle("active", false);
+                        navbaritem.forEach((element) => {
+                            element.classList.toggle("active", false);
+                        });
+                        break;
+                    case 2:
+                        sectiondivtop.classList.add("appear");
+                        sectiondivbottom.classList.add("appear");
+                        aboutmeintro(
+                            currentslide == 0 ? aboutmecover : aboutmeskills
+                        ).play();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        },
+        onSlideLeave: function(section, origin, destination, direction) {
+            currentslide = 1 - destination;
+            switch (currentslide) {
+                case 0:
+                    gradient_back_anim(
+                        "rgba(255, 202, 6, .5)",
+                        "rgba(255, 202, 6, .25)"
+                    ).play();
+                    gradient_front_anim(
+                        "rgba(255, 202, 6, 1)",
+                        "rgba(255, 202, 6, .25)"
+                    ).play();
+                    break;
+                case 1:
+                    gradient_back_anim(
+                        "rgba(140,207,230,.5)",
+                        "rgba(140,207,230,.25)"
+                    ).play();
+                    gradient_front_anim(
+                        "rgba(140,207,230,1)",
+                        "rgba(140,207,230,.25)"
+                    ).play();
+                    break;
+                default:
+                    break;
+            }
+        },
+    });
+});

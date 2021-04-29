@@ -1,95 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.css" integrity="sha512-/AilQf/shuEGfh8c3DoIqcIqHZCKpiImSyt+fxIKJphHiNa6QMPb6AbDly6rkjmGr/5OZd35JtvVkbEKnCZO+A==" crossorigin="anonymous" />
 <link rel="stylesheet" href="styles.css">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jerold Lodge</title>
 </head>
-<body class = "bodymain" id="main">
+
+<body class="bodymain">
     <div class="navbar">
-        <!-- <div class="navbar_logo">Jerold Lodge</div> -->
+        <div class="navbar_logo">HTML + CSS + JavaScript</div>
         <div class="mobile_menu" id="mobile_menu_btn">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
         <div class="navbar_buttons">
-            <a class="navbar_item">Home</a>
-            <a class="navbar_item">About Me</a>
-            <a class="navbar_item">Projects</a>
+            <a class="navbar_item" href="#main">Home</a>
+            <a class="navbar_item" href="#aboutme">About Me</a>
+            <a class="navbar_item" href="#projects">Projects</a>
             <a href="JeroldLodgeResume2021.pdf" class="navbar_item" target="_blank">Resume</a>
         </div>
     </div>
-    <div id="homecontainer">
-        <span id="titlename">
-            <span class="line"></span>
-            <span class="letters">JEROLD LODGE</span>
-            <span class="line"></span>
-        </span>
-        <button class="toabout">About Me</button>
-        <canvas id="canvas1"></canvas>
+    <div class="sectiondivide_top">
+        <div class="sectiondivide_top_back"></div>
+        <div class="sectiondivide_top_front"></div>
     </div>
-    <div id="scroll_link" class="aboutcontainer">
-        <object data="images/code thinking ids.svg" type="image/svg+xml" id="main_img"></object>
-        <div class="aboutme_card">
-            <div class="aboutme_basic">
-                <h1>Jerold Lodge</h2>
-                <h3>University of Central Florida</h3>
-                <h4>Bachelor of Computer Science</h4>
-                <div class="aboutmeskills">
-                    <div class="languagelist_container">
-                        <label for="techlist">Technologies</label>
-                        <ul id="techlist">
-                            <li>React</li>
-                            <li>Vue</li>
-                            <li>Git</li>
-                            <li>Flutter</li>
-                            <li>Node.js</li>
-                            <li>Unreal Engine</li>
-                            <li>wxWidgets</li>
-                        </ul>
+    <div class="sectiondivide_bottom">
+        <div class="sectiondivide_bottom_back"></div>
+        <div class="sectiondivide_bottom_front"></div>
+    </div>
+    <div id="fullpage">
+        <div class="section" id="homecontainer">
+            <span id="titlename">
+                <span class="line"></span>
+                <span class="letters">JEROLD LODGE</span>
+                <span class="line"></span>
+            </span>
+            <button class="toabout">About Me</button>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <div class="aboutme_cover">
+                    <div class="aboutme_cover_info">
+                        <h1>Jerold Lodge</h2>
+                            <h2>Univeristy of Central Florida</h3>
+                                <h3>Bachelor of Computer Science</h4>
+                                    <p> I am a college graduate looking to start my career as a software developer. I
+                                        have worked on several projects from Game-Development to Websites and I’m always
+                                        looking for a new project to tackle.<br><br></p>
+                                    <p>I taught myself to code when I was in middle school and continued to build upon
+                                        that knowledge throughout my academic career. I love challenges, learning new
+                                        skills and technologies. </p>
                     </div>
-                    <div class="languagelist_container">
-                        <label for="techlist">Languages</label>
-                        <ul id="techlist">
-                            <li>Java</li>
-                            <li>Javascript</li>
-                            <li>C</li>
-                            <li>C++</li>
-                            <li>Python</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
+                    <object data="images/ResumeMan.svg" type="image/svg+xml" id="resumeman_img"></object>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="aboutme_skills">
+                    <div class="aboutme_skills_info">
+                        <div class="languagelist_container">
+                            <label for="techlist">Technologies</label>
+                            <ul id="techlist">
+                                <li>React</li>
+                                <li>Vue</li>
+                                <li>Git</li>
+                                <li>Flutter</li>
+                                <li>Node.js</li>
+                                <li>Unreal Engine</li>
+                                <li>wxWidgets</li>
+                            </ul>
+                        </div>
+                        <div class="languagelist_container">
+                            <label for="techlist">Languages</label>
+                            <ul id="techlist">
+                                <li>Java</li>
+                                <li>Javascript</li>
+                                <li>C</li>
+                                <li>C++</li>
+                                <li>Python</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <object data="images/code thinking ids.svg" type="image/svg+xml" id="codeman_img"></object>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="project_main">
+                <h1>Projects</h1>
+                <div class="project_container">
+                    <div class="project_card">
+                        <h2>Everglades AI Wargame</h2>
+                    </div>
+                    <div class="project_card">
+                        <h2>Everglades Desktop Applciation</h2>
+                    </div>
+                    <div class="project_card">
+                        <h2>Amigo</h2>
+                    </div>
+                    <div class="project_card">
+                        <h1>React.js</h1>
+                        <h2>My Contacts</h2>
+                    </div>
+                    <div class="project_card">
+                        <h2>Mancala Algorithm</h2>
+                    </div>
+                    <div class="project_card">
+                        <h2>Wordhunt Algorithm</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="project_main">
-        <h1 id="scroll_link">Projects</h1>
-        <div class="project_container">
-            <div class="project_card">
-                <h2>Everglades AI Wargame</h2>
-            </div>
-            <div class="project_card">
-                <h2>Amigo</h2>
-            </div>
-            <div class="project_card">
-                <h1>React.js</h1>
-                <h2>My Contacts</h2>
-            </div>
-            <div class="project_card">
-                <h2>Mancala Algorithm</h2>
-            </div>
-            <div class="project_card">
-                <h2>Wordhunt Algorithm</h2>
-            </div>
-        </div>
-    </div>
-    <script src="anime.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.js" integrity="sha512-13ryG34lkmhOD5L4DTd7z1AmhUl+bhFfE7xmMvs5K3Tm9O4ua0VZs8FBuBgI4AGIAB2icf3FtGQ/fpZUGFcnkA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.js" integrity="sha512-XOpdFagEEv9XMxN/2EdvFL/PfGtFDjX+AkRznsFHDtdC05YWdkMnz5JZUfrbnEabOQaMc7YNTl2xPbOu3J858Q==" crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <script src="background.js"></script>
 </body>
+
 </html>
